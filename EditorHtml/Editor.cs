@@ -1,6 +1,6 @@
 namespace EditorHtml
 {
-    public class Teste
+    public class Editor
     {
         
     }
