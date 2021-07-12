@@ -10,16 +10,7 @@ namespace EditorHtml
             Console.ForegroundColor = ConsoleColor.Cyan;
             DrawScreen();
             WriteOptions();
-            try
-            {
-                short option = short.Parse(Console.ReadLine()!);
-                HandleMenuOption(option);
-            }
-            catch (Exception)
-            {
-                Show();
-                throw;
-            }
+            HandleMenuOption(ReceiveChoice());
         }
 
         private static void DrawScreen()
@@ -58,6 +49,20 @@ namespace EditorHtml
                     break;
                 }
                 default: Show(); break;
+            }
+        }
+
+        private static short ReceiveChoice()
+        {
+            try
+            {
+                short option = short.Parse(Console.ReadLine()!);
+                return option;
+            }
+            catch (Exception)
+            {
+                Show();
+                throw;
             }
         }
 
