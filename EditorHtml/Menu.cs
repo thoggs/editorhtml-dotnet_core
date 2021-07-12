@@ -10,8 +10,16 @@ namespace EditorHtml
             Console.ForegroundColor = ConsoleColor.Cyan;
             DrawScreen();
             WriteOptions();
-            
-            int option = int.Parse(Console.ReadLine()!);
+            try
+            {
+                short option = short.Parse(Console.ReadLine()!);
+                HandleMenuOption(option);
+            }
+            catch (Exception)
+            {
+                Show();
+                throw;
+            }
         }
 
         private static void DrawScreen()
@@ -35,6 +43,22 @@ namespace EditorHtml
             Console.WriteLine("0 => Sair");
             Console.SetCursorPosition(2, 9);
             Console.Write("Opção: ");
+        }
+
+        private static void HandleMenuOption(short option)
+        {
+            switch (option)
+            {
+                case 1: Console.WriteLine("Editor"); break;
+                case 2: Console.WriteLine("View"); break;
+                case 0:
+                {
+                    Console.Clear();
+                    Environment.Exit(0);
+                    break;
+                }
+                default: Show(); break;
+            }
         }
 
         private static void UpperLine()
