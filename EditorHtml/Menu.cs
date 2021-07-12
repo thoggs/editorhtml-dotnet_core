@@ -9,6 +9,9 @@ namespace EditorHtml
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Cyan;
             DrawScreen();
+            WriteOptions();
+            
+            int option = int.Parse(Console.ReadLine()!);
         }
 
         private static void DrawScreen()
@@ -16,10 +19,9 @@ namespace EditorHtml
             UpperLine();
             CenterLine();
             DrawLine();
-            WriteOptions();
         }
 
-        private static int WriteOptions()
+        private static void WriteOptions()
         {
             Console.SetCursorPosition(10, 1);
             Console.WriteLine("Editor HTML");
@@ -32,19 +34,7 @@ namespace EditorHtml
             Console.SetCursorPosition(2, 7);
             Console.WriteLine("0 => Sair");
             Console.SetCursorPosition(2, 9);
-            Console.WriteLine("Opção:");
-            Console.SetCursorPosition(9, 9);
-            try
-            {
-                int option = int.Parse(Console.ReadLine()!);
-                return option;
-            }
-            catch (Exception)
-            {
-                Console.Clear();
-                DrawScreen();
-                throw;
-            }
+            Console.Write("Opção: ");
         }
 
         private static void UpperLine()
