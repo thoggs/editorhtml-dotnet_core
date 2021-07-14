@@ -16,7 +16,6 @@ namespace EditorHtml
             Console.WriteLine("---------------");
             Console.Write("\n");
             Replace(text);
-            
             Console.ReadKey();
             Menu.Show();
         }
