@@ -12,11 +12,11 @@ namespace EditorHtml
             Console.Clear();
             Console.SetCursorPosition(6, 1);
             Console.WriteLine("MODO VISUALIZAÇÃO");
-            Console.SetCursorPosition(4, 2);
+            Console.SetCursorPosition(6, 2);
             Console.WriteLine("---------------");
             Console.Write("\n");
             Replace(text);
-            Console.WriteLine("---------------");
+            
             Console.ReadKey();
             Menu.Show();
         }
@@ -30,7 +30,7 @@ namespace EditorHtml
             {
                 if (strong.IsMatch(t))
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write(t.Substring(
                         t.IndexOf('>') + 1, 
                         t.LastIndexOf('<') - 1 - t.IndexOf('>')));
